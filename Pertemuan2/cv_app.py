@@ -109,3 +109,4 @@ st.download_button(
     file_name="cv_data.txt",
     mime="text/plain"
 )
+
