@@ -2,7 +2,7 @@
 
 ### KELOMPOK 7 ###
 - Akhmad Febri Dimyati
-- Moh. Ni'am Billy Yachsyi
+- Moh. Ni'am Billi Yachsyi
 - Agung Dwi Jaya
 
 ### Tujuan Praktikum ###
