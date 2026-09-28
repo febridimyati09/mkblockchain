@@ -1,5 +1,10 @@
 # 📚Praktikum Blockchain Pertemuan 4 (TUGAS) #
 
+## KELOMPOK 4 ##
+- Akhmad Febri Dimyati
+- Moh. Ni'am Billy Yachsyi
+- Agung Dwi Jaya
+
 ### Tujuan Praktikum ###
 1. Mahasiswa memahami konsep Object-Oriented Programming (OOP) pada Python melalui
 pembuatan Class.
