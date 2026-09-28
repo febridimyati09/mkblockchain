@@ -1,6 +1,6 @@
 # 📚Praktikum Blockchain Pertemuan 4 (TUGAS) #
 
-## KELOMPOK 4 ##
+### KELOMPOK 7 ###
 - Akhmad Febri Dimyati
 - Moh. Ni'am Billy Yachsyi
 - Agung Dwi Jaya
