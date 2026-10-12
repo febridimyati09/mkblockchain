@@ -56,6 +56,10 @@ Setelah menyelesaikan praktikum ini, mahasiswa diharapkan mampu:
 Smart contract `CelenganDigital.sol` telah berhasil diimplementasikan dengan `struct` dan `mapping` serta terbukti dapat di-compile tanpa error (Centang hijau Bagian 3 diatas).
 
 ## File Celengan Digital
+**Link file siap download:** https://bit.ly/4ybK6ph
+
+## Isi Dari File
+**Kode:**
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
