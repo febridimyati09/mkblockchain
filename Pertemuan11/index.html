@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>dApp CertiChain — Pertemuan 11</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+  <h1>dApp CertiChain</h1>
+
+  <button id="btnConnect">Connect Wallet</button>
+  <p>Address: <span id="address">-</span></p>
+  <p>Saldo: <span id="saldo">-</span></p>
+  <p>Admin Kampus (dari Kontrak): <span id="admin">-</span></p>
+
+  <hr>
+
+  <h2>Data Sertifikat On-Chain (Read)</h2>
+  <p>Detail Ijazah #1: <span id="status">-</span></p>
+  <button id="btnMuat">Muat Detail Ijazah #1</button>
+
+  <p>Total Ijazah Milik Akun Ini: <span id="jumlah">-</span></p>
+  <button id="btnRefresh">Refresh Dashboard</button>
+  <div id="daftar"></div>
+
+  <hr>
+
+  <h2>Cabut Status Ijazah (Write Transaction)</h2>
+  <label for="pilihIjazah">Pilih Nomor Ijazah:</label>
+  <select id="pilihIjazah">
+    <option value="">-- Pilih Ijazah --</option>
+    <option value="IJZ-2026-001">IJZ-2026-001 (Akhmad Febri Dimyati)</option>
+    <option value="IJZ-2026-002">IJZ-2026-002 (Yu Jimin)</option>
+  </select>
+  <br><br>
+
+  <label for="inputAlasan">Alasan Pencabutan:</label>
+  <input type="text" id="inputAlasan" placeholder="Contoh: Kesalahan data akademik">
+  <br><br>
+
+  <button id="btnKirim" disabled>Cabut Ijazah (Kirim Transaksi)</button>
+  <p id="elTx">Status Transaksi: Belum ada transaksi (Connect Wallet dulu).</p>
+
+  <script src="app.js"></script>
+</body>
+</html>
