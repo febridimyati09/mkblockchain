@@ -1,4 +1,4 @@
-# Laporan Praktikum Pertemuan 11 — Menulis ke Smart Contract (Transaksi Write CertiChain)
+# Laporan Praktikum Pertemuan 11 — Menulis ke Smart Contract (Transaksi Write CertiChain).
 
 ## 1. Tujuan Praktikum
 1. Menghubungkan instance smart contract `CertiChain.sol` dengan objek `Signer` dari `BrowserProvider.getSigner()` agar antarmuka web dapat mengirimkan transaksi pengubah *state*.
@@ -6,7 +6,6 @@
 3. Menampilkan status transaksi secara bertahap di antarmuka pengguna (*signing* → *pending* → *confirmed* / gagal) serta menangani validasi input kosong, penolakan pengguna (*reject*), dan *revert* kontrak.
 4. Melakukan pembaruan tampilan (*refresh*) dashboard secara otomatis setelah transaksi terkonfirmasi di blockchain.
 
----
 
 ## 2. Ringkasan Implementasi
 
@@ -26,7 +25,6 @@ Menambahkan komponen form **Cabut Status Ijazah (Write Transaction)** yang terdi
   4. Apabila `receipt.status === 1`, menampilkan hash transaksi beserta jumlah `gasUsed`, lalu langsung memanggil ulang `muatDashboard()` dan `muatStatus()` agar perubahan status di blockchain langsung tampil di layar.
 * **Penanganan Error (`try/catch`):** Menangkap kode error `4001` / `ACTION_REJECTED` apabila pengguna menekan tombol *Reject* di MetaMask, serta menampilkan pesan kegagalan yang informatif jika terjadi *revert* di smart contract.
 
----
 
 ## 3. Hasil Pengujian Transaksi
 
@@ -47,7 +45,6 @@ Berikut adalah tangkapan layar aplikasi dApp CertiChain setelah transaksi pencab
 * Pop-up MetaMask muncul meminta konfirmasi tanda tangan akun admin (`0xf39fd...92266`) sebelum transaksi diproses ke jaringan lokal.
 * Setelah transaksi dikonfirmasi, hash transaksi dan jumlah gas tampil pada status transaksi, dan kartu sertifikat `IJZ-2026-002` di bagian dashboard otomatis berubah status dari **Valid** menjadi **Dicabut (Kesalahan penulisan nama program studi.)** tanpa memuat ulang halaman.
 
----
 
 ## 4. Kesimpulan
 Berbeda dengan pembacaan data menggunakan `Provider` yang bersifat gratis dan instan, pengubahan *state* di smart contract wajib menggunakan `Signer` untuk menandatangani transaksi lewat wallet pengguna serta membutuhkan biaya gas. Penggunaan `await tx.wait()` memastikan antarmuka menunggu hingga transaksi benar-benar tercatat dalam blok sebelum memperbarui tampilan dashboard sehingga data di web selalu sinkron dengan kondisi blockchain.
