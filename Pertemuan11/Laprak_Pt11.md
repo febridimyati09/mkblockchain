@@ -48,3 +48,4 @@ Berikut adalah tangkapan layar aplikasi dApp CertiChain setelah transaksi pencab
 
 ## 4. Kesimpulan
 Berbeda dengan pembacaan data menggunakan `Provider` yang bersifat gratis dan instan, pengubahan *state* di smart contract wajib menggunakan `Signer` untuk menandatangani transaksi lewat wallet pengguna serta membutuhkan biaya gas. Penggunaan `await tx.wait()` memastikan antarmuka menunggu hingga transaksi benar-benar tercatat dalam blok sebelum memperbarui tampilan dashboard sehingga data di web selalu sinkron dengan kondisi blockchain.
+
