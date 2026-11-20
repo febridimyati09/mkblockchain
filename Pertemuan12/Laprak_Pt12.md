@@ -30,13 +30,16 @@ Menambahkan bagian **Live Feed Event On-Chain (Real-Time)** pada antarmuka web y
 
 ### A. Kondisi Live Feed Sebelum Transaksi
 Saat halaman dibuka, `queryFilter` otomatis mengambil histori 4 event yang sudah tercatat sebelumnya pada Block #2, Block #3, Block #4, dan Block #5:
-
-![alt text](image.png)
+![alt text](image-3.png)
 
 ### B. Kondisi Live Feed Sesudah Transaksi Penerbitan Ijazah Baru
 Setelah mengirimkan transaksi penerbitan sertifikat baru (`IJZ-2026-004` atas nama **Ning Yizhuo**, Program Studi **Teknik Mesin**, Hash IPFS `QmHashDokumenKeempat012`) dan dikonfirmasi di MetaMask, event baru langsung muncul otomatis pada **Block #6** di Live Feed:
 
+![alt text](image.png)
+
 ![alt text](image-1.png)
+
+![alt text](image-2.png)
 
 **Detail Transaksi Pengujian:**
 - **Fungsi Dipanggil:** `terbitkanIjazah("IJZ-2026-004", "Ning Yizhuo", "Teknik Mesin", "QmHashDokumenKeempat012", ...)`
