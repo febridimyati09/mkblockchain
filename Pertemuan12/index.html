@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>dApp CertiChain — Pertemuan 12</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+  <h1>dApp CertiChain</h1>
+
+  <button id="btnConnect">Connect Wallet</button>
+  <p>Address: <span id="address">-</span></p>
+  <p>Saldo: <span id="saldo">-</span></p>
+  <p>Admin Kampus (dari Kontrak): <span id="admin">-</span></p>
+
+  <hr>
+
+  <h2>Data Sertifikat On-Chain (Read)</h2>
+  <p>Detail Ijazah #1: <span id="status">-</span></p>
+  <button id="btnMuat">Muat Detail Ijazah #1</button>
+
+  <p>Total Ijazah Milik Akun Ini: <span id="jumlah">-</span></p>
+  <button id="btnRefresh">Refresh Dashboard</button>
+  <div id="daftar"></div>
+
+  <hr>
+
+  <h2>Terbitkan Ijazah Baru (Write Transaction)</h2>
+  <label for="inputNomorBaru">Nomor Ijazah:</label>
+  <input type="text" id="inputNomorBaru" placeholder="Contoh: IJZ-2026-003">
+  <br><br>
+  <label for="inputNamaBaru">Nama Pemilik:</label>
+  <input type="text" id="inputNamaBaru" placeholder="Contoh: Kim Minjeong">
+  <br><br>
+  <label for="inputProdiBaru">Program Studi:</label>
+  <input type="text" id="inputProdiBaru" placeholder="Contoh: Teknik Informatika">
+  <br><br>
+  <label for="inputHashBaru">Hash Dokumen (IPFS):</label>
+  <input type="text" id="inputHashBaru" placeholder="Contoh: QmHashDokumenKetiga789">
+  <br><br>
+  <button id="btnTerbitkan" disabled>Terbitkan Ijazah</button>
+
+  <h2>Cabut Status Ijazah (Write Transaction)</h2>
+  <label for="pilihIjazah">Pilih Nomor Ijazah:</label>
+  <select id="pilihIjazah">
+    <option value="">-- Pilih Ijazah --</option>
+    <option value="IJZ-2026-001">IJZ-2026-001 (Akhmad Febri Dimyati)</option>
+    <option value="IJZ-2026-002">IJZ-2026-002 (Yu Jimin)</option>
+    <option value="IJZ-2026-003">IJZ-2026-003</option>
+  </select>
+  <br><br>
+
+  <label for="inputAlasan">Alasan Pencabutan:</label>
+  <input type="text" id="inputAlasan" placeholder="Contoh: Kesalahan data akademik">
+  <br><br>
+
+  <button id="btnKirim" disabled>Cabut Ijazah (Kirim Transaksi)</button>
+  <p id="elTx">Status Transaksi: Belum ada transaksi (Connect Wallet dulu).</p>
+
+  <hr>
+
+  <h2>Live Feed Event On-Chain (Real-Time)</h2>
+  <label for="filterEvent">Filter Event Penerbitan (Indexed Mahasiswa):</label>
+  <select id="filterEvent">
+    <option value="SEMUA">Semua Event (Penerbitan & Pencabutan)</option>
+    <option value="ADMIN">Hanya Penerbitan ke Akun Admin (0xf39Fd...)</option>
+    <option value="MHS_LAIN">Hanya Penerbitan ke Akun Lain (0x70997...)</option>
+  </select>
+  <br><br>
+  <div id="elFeed" style="border: 1px solid #999; padding: 10px; min-height: 80px; background: #f9f9f9;">
+    Memuat histori event...
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
