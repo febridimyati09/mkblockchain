@@ -194,3 +194,21 @@ async function kirimCabutIjazah() {
 * **Bukti:** Variabel `adminKampus` hanya ditetapkan satu kali di dalam `constructor()` tanpa fungsi untuk mengalihkan kepemilikan admin jika terjadi pergantian petugas atau kehilangan akses akun.
 * **Rekomendasi:** Tambahkan fungsi `transferAdmin(address _adminBaru)` yang diproteksi modifier `onlyAdmin` dan validasi `address(0)`.
 * **Status:** **Ditunda** (Alasan: Di luar ruang lingkup modul praktikum dan untuk menjaga kontrak yang sudah ter-deploy di jaringan lokal tetap stabil tanpa perubahan *state*).
+
+### Temuan 3: Fungsi Cek Detail Ijazah (`muatStatus`) Masih Di-hardcode pada Nomor Tunggal
+- **Tingkat:** Rendah
+- **Bukti:** Fungsi `muatStatus()` pada `app.js` hanya memanggil `kontrak.verifikasiIjazah("IJZ-2026-001")` secara statis tanpa menyediakan kolom input pencarian nomor ijazah lain.
+- **Rekomendasi:** Tambahkan elemen `<input>` pencarian nomor ijazah di `index.html` dan baca nilainya secara dinamis di dalam `muatStatus()`.
+- **Status:** **Ditunda** (Alasan: Pengguna tetap dapat melihat daftar lengkap seluruh ijazah miliknya melalui fitur *Refresh Dashboard* (`muatDashboard()`), sehingga fungsi *read* individual tetap dipertahankan sebagai pengujian *smoke test* awal).
+
+### Temuan 4: Tombol Transaksi Admin Tetap Aktif untuk Akun Bukan-Admin (`connectWallet`)
+- **Tingkat:** Rendah
+- **Bukti:** Pada `connectWallet()` di `app.js`, tombol `btnTerbitkan` dan `btnKirim` langsung diaktifkan (`disabled = false`) tanpa membandingkan alamat dompet aktif dengan `adminKampus`. Meski smart contract tetap aman karena menolak transaksi (*revert*), pengguna non-admin tetap berpotensi membuang *gas fee* jika transaksi terkirim.
+- **Rekomendasi:** Lakukan pengecekan `akunAktif.toLowerCase() === admin.toLowerCase()` saat koneksi dompet untuk menonaktifkan tombol khusus admin bagi akun mahasiswa/publik.
+- **Status:** **Ditunda** (Alasan: Sengaja dibiarkan aktif pada tahap praktikum ini untuk mempermudah pengujian *revert* akses secara manual melalui frontend dan MetaMask).
+
+### Temuan 5: Hardcode Alamat Wallet pada Filter Live Event (`terapkanFilterFeed`)
+- **Tingkat:** Rendah
+- **Bukti:** Fungsi `terapkanFilterFeed()` masih menanamkan alamat akun Hardhat secara statis (`0xf39F...` dan `0x7099...`) untuk memfilter parameter `indexed` mahasiswa.
+- **Rekomendasi:** Ganti pilihan statis menjadi input alamat dinamis atau opsi otomatis berdasarkan alamat wallet yang sedang terhubung.
+- **Status:** **Ditunda** (Alasan: Fitur warisan dari modul Pertemuan 12 yang difokuskan untuk pengujian cepat dua akun standar Hardhat lokal).
