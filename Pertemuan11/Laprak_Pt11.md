@@ -1,11 +1,5 @@
 # Laporan Praktikum Pertemuan 11 — Menulis ke Smart Contract (Transaksi Write CertiChain)
 
-**Identitas Mahasiswa**
-* **Nama / NIM:** Akhmad Febri Dimyati / [NIM Kamu]
-* **Mata Kuliah:** Teknologi & Rekayasa Blockchain
-
----
-
 ## 1. Tujuan Praktikum
 1. Menghubungkan instance smart contract `CertiChain.sol` dengan objek `Signer` dari `BrowserProvider.getSigner()` agar antarmuka web dapat mengirimkan transaksi pengubah *state*.
 2. Mengirimkan transaksi pencabutan ijazah (`cabutIjazah`) melalui form web, menunggu konfirmasi blok menggunakan `tx.wait()`, serta membaca data *receipt* berupa hash transaksi dan jumlah gas yang digunakan.
