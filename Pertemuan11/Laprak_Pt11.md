@@ -1,4 +1,4 @@
-# Laporan Praktikum Pertemuan 11 — Menulis ke Smart Contract (Transaksi Write CertiChain).
+# Laporan Praktikum Pertemuan 11: Menulis ke Smart Contract (Transaksi Write CertiChain).
 
 ## 1. Tujuan Praktikum
 1. Menghubungkan instance smart contract `CertiChain.sol` dengan objek `Signer` dari `BrowserProvider.getSigner()` agar antarmuka web dapat mengirimkan transaksi pengubah *state*.
